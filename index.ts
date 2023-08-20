@@ -13,10 +13,11 @@ async function devBuildWithNotification(
 
   const sourceTarget = targetFromTargetString(context.target!.project + ':build');
   let buildOptions = await context.getTargetOptions(sourceTarget);
-  buildOptions.logging = { level: 'debug' };
-  buildOptions.watch = true;
 
-  context.target!.configuration = 'development';
+  //buildOptions.logging = { level: 'debug' };
+  buildOptions.watch = options.watch || true;
+
+  context.target!.configuration = options.configuration || 'development';
 
   return (executeBrowserBuilder(buildOptions as any, context) as any).pipe(
     tap((buildResult: any) => {

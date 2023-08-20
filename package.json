@@ -1,7 +1,7 @@
 {
   "name": "ng-watch-notify",
-  "version": "1.0.0",
-  "description": "Notify when a watch cycle finishes",
+  "version": "1.0.5",
+  "description": "Get notified when an Angular watch command finishes",
   "main": "dist/index.js",
   "builders": "builders.json",
   "files": [
