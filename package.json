@@ -1,0 +1,28 @@
+{
+  "name": "ng-watch-notify",
+  "version": "1.0.0",
+  "description": "Notify when a watch cycle finishes",
+  "main": "dist/index.js",
+  "builders": "builders.json",
+  "files": [
+    "dist/*",
+    "builders.json"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "npm run copy:schema",
+    "copy:schema": "cp ./schema.json dist/schema.json"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~13.3.9",
+    "@angular-devkit/core": "~13.3.9",
+    "@types/karma": "^6.3.4",
+    "typescript": "~4.6.2",
+    "rxjs": "~7.5.0"
+  },
+  "dependencies": {
+    "node-notifier": "^10.0.1"
+  },
+  "author": "Sam Jacobs",
+  "license": "MIT"
+}

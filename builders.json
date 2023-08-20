@@ -1,0 +1,9 @@
+{
+  "builders": {
+    "watch-notify": {
+      "implementation": "./dist",
+      "schema": "./dist/schema.json",
+      "description": "Get notified when an Angular CLI watch cycle finishes"
+    }
+  }
+}
