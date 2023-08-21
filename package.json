@@ -12,12 +12,12 @@
   "scripts": {
     "build": "tsc",
     "postbuild": "npm run copy:distfiles",
+    "watch": "tsc --watch",
     "copy:distfiles": "cp ./schema.json dist/schema.json && cp ./image.png dist/image.png"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.9",
     "@angular-devkit/core": "~13.3.9",
-    "@types/karma": "^6.3.4",
     "typescript": "~4.6.2",
     "rxjs": "~7.5.0"
   },
