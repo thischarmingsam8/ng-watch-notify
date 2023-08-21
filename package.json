@@ -1,9 +1,10 @@
 {
   "name": "ng-watch-notify",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "description": "Get notified when an Angular watch command finishes",
   "main": "dist/index.js",
   "builders": "builders.json",
+  "homepage": "https://github.com/thischarmingsam8/ng-watch-notify",
   "files": [
     "dist/*",
     "builders.json"

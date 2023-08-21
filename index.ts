@@ -24,7 +24,9 @@ async function devBuildWithNotification(
     appName: ' ', // HACK: Text here looks janky on windows
     title: projectName,
     icon: path.join(__dirname, 'image.png'),
-    message: ''
+    message: '',
+    sound: false,
+    wait: false
   };
 
   return (executeBrowserBuilder(buildOptions as any, context) as any).pipe(
