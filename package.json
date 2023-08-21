@@ -1,6 +1,6 @@
 {
   "name": "ng-watch-notify",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Get notified when an Angular watch command finishes",
   "main": "dist/index.js",
   "builders": "builders.json",
@@ -10,8 +10,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "postbuild": "npm run copy:schema",
-    "copy:schema": "cp ./schema.json dist/schema.json"
+    "postbuild": "npm run copy:distfiles",
+    "copy:distfiles": "cp ./schema.json dist/schema.json && cp ./image.png dist/image.png"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.3.9",

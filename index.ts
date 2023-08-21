@@ -4,6 +4,7 @@ import { of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 const notifier = require('node-notifier');
+const path = require('path');
 
 async function devBuildWithNotification(
   options: any,
@@ -19,16 +20,21 @@ async function devBuildWithNotification(
 
   context.target!.configuration = options.configuration || 'development';
 
+  const notificationParams = {
+    appName: ' ', // HACK: Text here looks janky on windows
+    title: projectName,
+    icon: path.join(__dirname, 'image.png'),
+    message: ''
+  };
+
   return (executeBrowserBuilder(buildOptions as any, context) as any).pipe(
     tap((buildResult: any) => {
-      if (buildResult.success) {
-        notifier.notify(projectName + ' build successful');
-      } else {
-        notifier.notify(projectName + ' build failed');
-      }
+      let message = buildResult.success ? 'Build successful' : 'Build FAILED';
+
+      notifier.notify({ ...notificationParams, message });
     }),
     catchError(error => {
-      notifier.notify(projectName + ' build ERROR');
+      notifier.notify({ ...notificationParams, message: 'Build ERROR' });
       console.error('Error occurred:', error);
       return of({ success: false });
     })
